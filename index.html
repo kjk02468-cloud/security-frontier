@@ -94,6 +94,12 @@ input:focus{border-color:#c8a84b}
 /* Outro animations */
 @keyframes drop-in{0%{transform:translateY(-40px);opacity:0}70%{transform:translateY(4px)}100%{transform:translateY(0);opacity:1}}
 @keyframes glow-pulse{0%,100%{filter:drop-shadow(0 0 4px #c8a84b44)}50%{filter:drop-shadow(0 0 14px #c8a84b)}}
+
+@keyframes tracer{0%{transform:translateX(0);opacity:0}6%{opacity:1}88%{opacity:1}100%{transform:translateX(195px);opacity:0}}
+@keyframes mine-blast{0%{transform:scale(0) rotate(0deg);opacity:1}35%{transform:scale(1.4) rotate(12deg);opacity:1}75%{transform:scale(2.2) rotate(28deg);opacity:.5}100%{transform:scale(3) rotate(45deg);opacity:0}}
+@keyframes muzzle{0%,100%{opacity:0;transform:scale(.4)}30%,70%{opacity:1;transform:scale(1.1)}}
+@keyframes mg-shake{0%,100%{transform:translateX(0) translateY(0)}10%{transform:translateX(-3px) translateY(1px)}20%{transform:translateX(3px) translateY(-1px)}30%{transform:translateX(-2px) translateY(2px)}40%{transform:translateX(3px) translateY(-1px)}50%{transform:translateX(-3px) translateY(1px)}60%{transform:translateX(2px) translateY(-2px)}70%{transform:translateX(-2px) translateY(1px)}80%{transform:translateX(2px) translateY(0)}90%{transform:translateX(-1px) translateY(1px)}}
+@keyframes smoke{0%{transform:scale(0) translateY(0);opacity:.6}100%{transform:scale(2) translateY(-30px);opacity:0}}
 </style>
 </head>
 <body>
@@ -224,23 +230,27 @@ const SVGS={
   <rect x="155" y="96" width="85" height="14" fill="#0a1a10" rx="3" stroke="#4ade80" stroke-width="0.8"/>
   <text x="197" y="106" text-anchor="middle" fill="#4ade80" font-size="8" font-weight="bold">최종 성과 = 극대화</text>
 </svg>`,
-  R6:`<svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
-  <rect width="280" height="120" fill="#060c1a" rx="6"/>
-  <rect x="8" y="8" width="264" height="104" fill="#0c1424" rx="4" stroke="#1a2e50" stroke-width="0.8"/>
-  <text x="140" y="22" text-anchor="middle" fill="#e8e0cc" font-size="10" font-weight="bold" font-family="Arial">대한민국 방산 수출 성과</text>
-  <text x="140" y="34" text-anchor="middle" fill="#8090a0" font-size="7.5" font-family="Arial">2022년 수출 규모 확대 현황 및 향후 과제</text>
-  <line x1="20" y1="40" x2="260" y2="40" stroke="#1a2e50" stroke-width="0.5"/>
-  <text x="20" y="56" fill="#c8d8e8" font-size="9" font-family="Arial">성과 개요: K-방산 시장이 빠르게 자라나난</text>
-  <rect x="180" y="46" width="58" height="14" fill="none" stroke="#f87171" stroke-width="1.5" rx="2"/>
-  <text x="209" y="56" text-anchor="middle" fill="#f87171" font-size="7" font-weight="bold">오타 발견!</text>
-  <text x="20" y="72" fill="#c8d8e8" font-size="9" font-family="Arial">수출 단가: 평균 25$억 달러 규모</text>
-  <rect x="100" y="62" width="32" height="14" fill="none" stroke="#f87171" stroke-width="1.5" rx="2"/>
-  <text x="116" y="72" text-anchor="middle" fill="#f87171" font-size="7" font-weight="bold">단위오류!</text>
-  <text x="20" y="88" fill="#8090a0" font-size="8" font-family="Arial">출처: 방위사업청 2023 연간보고서</text>
-  <circle cx="185" cy="52" r="3" fill="#f87171"><animate attributeName="opacity" values="1;0.3;1" dur="0.8s" repeatCount="indefinite"/></circle>
-  <circle cx="107" cy="69" r="3" fill="#f87171"><animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" repeatCount="indefinite"/></circle>
-  <text x="140" y="110" text-anchor="middle" fill="#4a6585" font-size="7.5" font-family="Arial">위원님의 매의 눈으로 발견하십시오</text>
-</svg>`,
+  R6:`<svg viewBox="0 0 280 125" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+  <rect width="280" height="125" fill="#060c1a" rx="6"/>
+  <text x="140" y="13" text-anchor="middle" fill="#c8a84b" font-size="9" font-weight="bold" font-family="Arial">K-방산 빅4 — 대한민국 방위산업 대표 기업</text>
+  <rect x="8" y="20" width="124" height="42" fill="#0d1e30" rx="5" stroke="#1a3a55" stroke-width="1"/>
+  <text x="20" y="34" fill="#c8a84b" font-size="8" font-weight="bold">한화에어로스페이스</text>
+  <text x="20" y="46" fill="#5a8090" font-size="7">K9 자주포 · AS21 레드백</text>
+  <text x="20" y="57" fill="#4ade80" font-size="7">수출 $8.4B (2022)</text>
+  <rect x="148" y="20" width="124" height="42" fill="#0d1e30" rx="5" stroke="#1a3a55" stroke-width="1"/>
+  <text x="160" y="34" fill="#c8a84b" font-size="8" font-weight="bold">현대로템</text>
+  <text x="160" y="46" fill="#5a8090" font-size="7">K2 흑표 전차 · 장갑차</text>
+  <text x="160" y="57" fill="#4ade80" font-size="7">폴란드 $5.8B 계약</text>
+  <rect x="8" y="68" width="124" height="42" fill="#0d1e30" rx="5" stroke="#1a3a55" stroke-width="1"/>
+  <text x="20" y="82" fill="#c8a84b" font-size="8" font-weight="bold">한국항공우주(KAI)</text>
+  <text x="20" y="94" fill="#5a8090" font-size="7">FA-50 · KF-21 보라매</text>
+  <text x="20" y="105" fill="#4ade80" font-size="7">말레이시아 · 폴란드 수출</text>
+  <rect x="148" y="68" width="124" height="42" fill="#0d1e30" rx="5" stroke="#1a3a55" stroke-width="1"/>
+  <text x="160" y="82" fill="#c8a84b" font-size="8" font-weight="bold">LIG넥스원</text>
+  <text x="160" y="94" fill="#5a8090" font-size="7">천궁-II · 비궁 미사일</text>
+  <text x="160" y="105" fill="#4ade80" font-size="7">UAE · 사우디 수출</text>
+  <text x="140" y="120" text-anchor="middle" fill="#3a5070" font-size="7.5" font-family="Arial">K-방산 빅4가 전체 수출의 약 85%를 담당</text>
+</svg>`
 };
 
 const ROUNDS=[
@@ -259,8 +269,8 @@ const ROUNDS=[
    question:"코스피가 경제 규모 대비 저평가받는 '코리아 디스카운트'의 근본 원인으로 가장 정확한 것은?",
    choices:["한국 기업의 낮은 배당 수익률","원화의 국제화 미흡","북한 리스크로 인한 지정학적 불확실성","외국인 투자자 지분 규제"],
    correct:2,gt:33,
-   response:"배당·원화 등도 요인이지만, 이 맥락의 핵심은 안보 불확실성입니다. 해소 시 가닿을 '잠재적 영토'가 8,000입니다.",
-   insight:"안보 안정은 경제 성장의 보이지 않는 한계를 깨뜨립니다.",
+   response:"배당·원화 등도 요인이지만, 이 맥락의 핵심은 안보 불확실성입니다. 이것이 해소될 때 가닿을 수 있는 '잠재적 영토'가 8,000입니다.",
+   insight:"안보 안정은 경제 성장의 보이지 않는 한계를 깨뜨리는 열쇠입니다.",
    dialogue_correct:"논리 적중!",dialogue_wrong:"함정에 빠졌습니다"},
   {num:3,title:"곱셈의 법칙",icon:"ti-math-function",diff:"중간",dc:"#406080",
    svg:'R3',enemy:"B",
@@ -289,16 +299,19 @@ const ROUNDS=[
    response:"A·B·D는 사실이지만 핵심이 아닙니다. 안보가 모든 경제 활동의 전제 조건이라는 것이 핵심입니다.",
    insight:"국방비는 지출이 아닌 '전제 조건'에 대한 투자입니다.",
    dialogue_correct:"격파!",dialogue_wrong:"경계를 늦추지 마십시오"},
-  {num:6,title:"디테일의 완성도",icon:"ti-zoom-in",diff:"이스터에그",dc:"#506030",
+  {num:6,title:"K-방산 빅4 기업 식별",icon:"ti-building-factory",diff:"실전 지식",dc:"#306050",
    svg:'R6',enemy:"C",
-   situation:"발표 자료를 면밀히 검토하던 중, 위원님의 날카로운 안목이 틈새를 포착했습니다.",
-   question:"발표 자료에서 발견한 실제 오류를 찾아 지적하십시오.",
-   choices:["슬라이드 전환 속도가 너무 빠르다","오타('자라나난')와 단위 오류('25$')가 존재한다","참고 문헌 인용 방식이 통일되지 않았다","그래프 색상이 구분하기 어렵다"],
-   correct:1,gt:100,
-   response:"(경례) 위원님의 매의 눈을 피해 갈 수 없었군요! 즉시 수정하였습니다.",
-   insight:"본질적인 메시지만큼은 완벽하게 전달되었기를 소망합니다.",
-   dialogue_correct:"임무 완수!",dialogue_wrong:"더 예리하게!"}
+   situation:"K-방산 수출을 이끄는 4대 기업의 면면이 공개됩니다. 세계 시장을 누비는 진짜 방산 강자를 확인하십시오.",
+   question:"다음 중 K-방산 빅4 대기업에 해당하지 않는 기업은?",
+   choices:["한화에어로스페이스","현대로템","두산에너빌리티","LIG넥스원"],
+   correct:2,gt:100,
+   response:"두산에너빌리티는 발전소·에너지 인프라 전문 기업으로 K-방산 빅4에 해당하지 않습니다. K-방산 빅4는 한화에어로스페이스(자주포·장갑차), 현대로템(전차), KAI(항공기), LIG넥스원(미사일·전자전)으로 구성됩니다.",
+   insight:"K-방산 빅4의 글로벌 경쟁력이 곧 대한민국 안보 자산입니다.",
+   dialogue_correct:"K-방산 완전 숙지!",dialogue_wrong:"방산 기업을 재확인하십시오"}
 ];
+// ── STATE ────────────────────────────────────────────────────
+let S={screen:'title',name:'',roundIdx:0,roundState:'question',gauge:0,penalties:0,startTime:null,elapsed:0,finalTime:null,playerHP:3};
+let timerInt=null;
 
 // ── SVG CHARACTERS ──────────────────────────────────────────
 const SOLDIER_SVG=`<svg width="80" height="120" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
@@ -334,14 +347,13 @@ const SOLDIER_SVG=`<svg width="80" height="120" viewBox="0 0 80 120" xmlns="http
 </svg>`;
 
 function enemySVG(type){
-  if(type==="A") return `<svg width="80" height="120" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
+  if(type==="A")return`<svg width="80" height="120" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
     <ellipse cx="40" cy="118" rx="18" ry="4" fill="#00000044"/>
     <ellipse cx="40" cy="90" rx="16" ry="26" fill="#1a0a28" opacity="0.7"/>
     <rect x="26" y="78" width="28" height="40" fill="#1a0828" rx="6"/>
     <ellipse cx="26" cy="88" rx="10" ry="20" fill="#140620"/>
     <ellipse cx="54" cy="88" rx="10" ry="20" fill="#140620"/>
     <rect x="28" y="60" width="24" height="30" fill="#2a1040" rx="4"/>
-    <rect x="32" y="46" width="16" height="18" fill="#220c34" rx="8"/>
     <ellipse cx="40" cy="34" rx="22" ry="20" fill="#220c34"/>
     <ellipse cx="30" cy="32" rx="6" ry="7" fill="#ff1a1a"/>
     <circle cx="30" cy="32" r="3" fill="#ff6666"/>
@@ -350,31 +362,18 @@ function enemySVG(type){
     <circle cx="50" cy="32" r="3" fill="#ff6666"/>
     <circle cx="50" cy="31" r="1.5" fill="white"/>
     <path d="M34 44 Q40 48 46 44" stroke="#8a2a8a" stroke-width="2" fill="none"/>
-    <ellipse cx="40" cy="54" rx="7" ry="4" fill="#8a208a" opacity="0.6"/>
-    <rect x="52" y="64" width="16" height="4" fill="#6a0a8a" rx="2" transform="rotate(-30 52 64)"/>
-    <rect x="55" y="56" width="16" height="4" fill="#8a0a6a" rx="2" transform="rotate(-10 55 56)"/>
     <text x="40" y="22" text-anchor="middle" fill="#aa44aa" font-size="9" font-style="italic">역사왜곡</text>
   </svg>`;
-  if(type==="B") return `<svg width="80" height="120" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
+  if(type==="B")return`<svg width="80" height="120" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
     <ellipse cx="40" cy="118" rx="20" ry="4" fill="#00000044"/>
     <rect x="24" y="95" width="14" height="22" fill="#1a0a0a" rx="3"/>
     <rect x="42" y="95" width="14" height="22" fill="#1a0a0a" rx="3"/>
-    <rect x="20" y="110" width="18" height="10" fill="#0e0606" rx="3"/>
-    <rect x="42" y="110" width="18" height="10" fill="#0e0606" rx="3"/>
     <rect x="18" y="72" width="44" height="28" fill="#2a0a0a" rx="4"/>
     <rect x="14" y="76" width="14" height="22" fill="#220808" rx="4"/>
     <rect x="52" y="76" width="14" height="22" fill="#220808" rx="4"/>
-    <circle cx="20" cy="90" r="5" fill="#ff2200"/>
-    <circle cx="60" cy="90" r="5" fill="#ff2200"/>
-    <rect x="16" y="66" width="48" height="10" fill="#180606" rx="2"/>
-    <rect x="18" y="42" width="44" height="28" fill="#2e0e0e" rx="5"/>
-    <rect x="10" y="34" width="60" height="12" fill="#1a0808" rx="3"/>
     <ellipse cx="40" cy="28" rx="26" ry="22" fill="#220a0a"/>
-    <rect x="16" y="38" width="48" height="8" fill="#180606" rx="2"/>
     <ellipse cx="30" cy="30" rx="8" ry="6" fill="#ff0000"/>
     <ellipse cx="50" cy="30" rx="8" ry="6" fill="#ff0000"/>
-    <rect x="26" y="27" width="8" height="6" fill="#ff5500"/>
-    <rect x="46" y="27" width="8" height="6" fill="#ff5500"/>
     <circle cx="30" cy="30" r="2.5" fill="white"/>
     <circle cx="50" cy="30" r="2.5" fill="white"/>
     <path d="M33 42 L47 42" stroke="#880000" stroke-width="2" stroke-linecap="round"/>
@@ -382,10 +381,8 @@ function enemySVG(type){
     <polygon points="67,44 74,56 60,56" fill="#cc0000"/>
     <text x="40" y="14" text-anchor="middle" fill="#dd3333" font-size="9" font-style="italic">안보위협</text>
   </svg>`;
-  return `<svg width="80" height="120" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
+  return`<svg width="80" height="120" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
     <ellipse cx="40" cy="118" rx="18" ry="4" fill="#00000044"/>
-    <ellipse cx="30" cy="100" rx="12" ry="20" fill="#200a30" opacity="0.8"/>
-    <ellipse cx="50" cy="100" rx="12" ry="20" fill="#200a30" opacity="0.8"/>
     <ellipse cx="40" cy="84" rx="22" ry="28" fill="#2a0a40"/>
     <ellipse cx="14" cy="80" rx="10" ry="16" fill="#1a0830" opacity="0.7"/>
     <ellipse cx="66" cy="80" rx="10" ry="16" fill="#1a0830" opacity="0.7"/>
@@ -397,21 +394,43 @@ function enemySVG(type){
     <ellipse cx="50" cy="46" rx="7" ry="8" fill="#7700cc"/>
     <circle cx="50" cy="45" r="4" fill="#aa44ff"/>
     <circle cx="50" cy="44" r="2" fill="white"/>
-    <path d="M35 58 L37 54 L40 58 L43 54 L45 58" stroke="#cc44ff" stroke-width="1.5" fill="none"/>
     <ellipse cx="40" cy="30" rx="18" ry="16" fill="#3a0c54"/>
     <text x="40" y="34" text-anchor="middle" fill="#cc66ff" font-size="18">?</text>
     <text x="40" y="14" text-anchor="middle" fill="#aa44ff" font-size="9" font-style="italic">이념혼란</text>
   </svg>`;
 }
 
-// ── STATE ────────────────────────────────────────────────────
-let S={screen:'title',name:'',roundIdx:0,roundState:'question',gauge:0,penalties:0,startTime:null,elapsed:0,finalTime:null,playerHP:3,dialogue:null};
-let timerInt=null;
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const fmt=ms=>{const v=Math.max(0,ms),m=Math.floor(v/60000),s=Math.floor((v%60000)/1000),c=Math.floor((v%1000)/10);return`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}.${String(c).padStart(2,'0')}`};
 const $=id=>document.getElementById(id);
 
 // ── SOUND ────────────────────────────────────────────────────
+function playMinigunSound(){
+  try{
+    const ctx=new(window.AudioContext||window.webkitAudioContext)();
+    for(let i=0;i<28;i++){
+      const delay=i*0.019;
+      const o=ctx.createOscillator(),g=ctx.createGain();
+      o.type='square';o.frequency.value=110+Math.random()*50;
+      g.gain.setValueAtTime(0,ctx.currentTime+delay);
+      g.gain.linearRampToValueAtTime(0.18,ctx.currentTime+delay+0.003);
+      g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+delay+0.016);
+      o.connect(g);g.connect(ctx.destination);
+      o.start(ctx.currentTime+delay);o.stop(ctx.currentTime+delay+0.02);
+    }
+    setTimeout(()=>{
+      try{
+        const c2=new(window.AudioContext||window.webkitAudioContext)();
+        const o=c2.createOscillator(),g=c2.createGain();
+        o.type='sawtooth';o.frequency.setValueAtTime(200,c2.currentTime);
+        o.frequency.exponentialRampToValueAtTime(30,c2.currentTime+.4);
+        g.gain.setValueAtTime(.3,c2.currentTime);
+        g.gain.exponentialRampToValueAtTime(.001,c2.currentTime+.5);
+        o.connect(g);g.connect(c2.destination);o.start();o.stop(c2.currentTime+.5);
+      }catch(e){}
+    },480);
+  }catch(e){}
+}
 function playSound(type){
   try{
     const ctx=new(window.AudioContext||window.webkitAudioContext)();
@@ -448,33 +467,56 @@ function addStar(){
 }
 
 async function animateAttack(){
-  const pc=$('player-char'),ec=$('enemy-char'),ef=$('effects');
+  const pc=$('player-char'),ec=$('enemy-char'),ef=$('effects'),bw=$('battle-wrap');
   if(!pc||!ec)return;
-  pc.className='char-attack';
-  await sleep(280);
-  playSound('impact');
-  const imp=document.createElement('div');
-  imp.className='impact';
-  imp.style.cssText=`right:20%;top:30%;width:80px;height:80px;background:radial-gradient(circle,#ffffffaa,#c8a84b44,transparent)`;
-  ef.appendChild(imp);
-  ec.className='enemy-hit';
-  ef.className='flash-correct';
-  const ht=document.createElement('div');
-  ht.className='hit-text';ht.textContent='CRITICAL!';
-  ht.style.cssText=`right:15%;top:10%;color:#c8a84b`;
-  ef.appendChild(ht);
-  for(let i=0;i<8;i++){
-    const p=document.createElement('div');
-    p.className='particle';
-    const a=Math.random()*Math.PI*2,d=30+Math.random()*40;
-    p.style.cssText=`right:20%;top:40%;width:${4+Math.random()*5}px;height:${4+Math.random()*5}px;background:${['#c8a84b','#4ade80','#ffffff'][Math.floor(Math.random()*3)]};--px:${Math.cos(a)*d}px;--py:${Math.sin(a)*d}px`;
-    ef.appendChild(p);
+  pc.style.transition='transform .1s';pc.style.transform='translateX(6px)';
+  playMinigunSound();
+  const mf=document.createElement('div');
+  mf.style.cssText='position:absolute;left:72px;top:54px;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle,#ffffff,#ffee44,#ff8800,transparent);animation:muzzle .06s ease-in-out 8 alternate;z-index:25;pointer-events:none';
+  ef.appendChild(mf);
+  if(bw)bw.style.animation='mg-shake .55s ease-out';
+  for(let i=0;i<20;i++){
+    setTimeout(()=>{
+      const t=document.createElement('div');
+      const yOff=Math.random()*14-7,len=38+Math.random()*18;
+      t.style.cssText='position:absolute;left:80px;top:'+(61+yOff)+'px;width:'+len+'px;height:'+(1.2+Math.random()*.8)+'px;background:linear-gradient(90deg,transparent,#ffee44 30%,#ffffff 70%,transparent);animation:tracer .11s ease-out forwards;z-index:18;border-radius:1px;pointer-events:none';
+      ef.appendChild(t);setTimeout(()=>t.remove(),220);
+    },i*26);
   }
-  await sleep(500);
-  pc.className='char-idle';ec.className='enemy-idle';ef.className='';
-  ef.innerHTML='';
+  await sleep(240);ec.className='enemy-hit';
+  const blasts=[{r:28,t:32},{r:16,t:55},{r:42,t:48},{r:22,t:68},{r:38,t:30},{r:14,t:44}];
+  blasts.forEach((b,i)=>{
+    setTimeout(()=>{
+      const sz=18+Math.random()*20;
+      const ex=document.createElement('div');
+      ex.style.cssText='position:absolute;right:'+b.r+'%;top:'+b.t+'%;width:'+sz+'px;height:'+sz+'px;border-radius:50%;background:radial-gradient(circle,#ffffff 0%,#ffdd00 30%,#ff6600 60%,transparent 100%);animation:mine-blast .55s ease-out forwards;z-index:22;margin-right:-'+(sz/2)+'px;margin-top:-'+(sz/2)+'px;pointer-events:none';
+      ef.appendChild(ex);
+      const sm=document.createElement('div');
+      sm.style.cssText='position:absolute;right:'+b.r+'%;top:'+b.t+'%;width:'+(sz*1.4)+'px;height:'+(sz*1.4)+'px;border-radius:50%;background:radial-gradient(circle,#88888866,transparent);animation:smoke .8s ease-out '+(i*40)+'ms forwards;z-index:21;pointer-events:none';
+      ef.appendChild(sm);
+      for(let j=0;j<5;j++){
+        const sp=document.createElement('div'),a=Math.random()*Math.PI*2,d=20+Math.random()*30;
+        sp.className='particle';
+        sp.style.cssText='position:absolute;right:'+b.r+'%;top:'+b.t+'%;width:'+(2+Math.random()*3)+'px;height:'+(2+Math.random()*3)+'px;background:'+['#ffcc00','#ff8800','#ffffff'][Math.floor(Math.random()*3)]+';border-radius:50%;--px:'+(Math.cos(a)*d)+'px;--py:'+(Math.sin(a)*d)+'px;animation:particle .65s ease-out forwards;z-index:23;pointer-events:none';
+        ef.appendChild(sp);
+      }
+      setTimeout(()=>{ex.remove();sm.remove();},700);
+    },i*90);
+  });
+  setTimeout(()=>{
+    const ht=document.createElement('div');
+    ht.className='hit-text';ht.textContent='지뢰 제거!';
+    ht.style.cssText='right:12%;top:6%;color:#ffdd00;font-size:19px;text-shadow:0 0 10px #ff8800,0 2px 4px #00000088';
+    ef.appendChild(ht);
+  },450);
+  ef.className='flash-correct';
+  await sleep(750);
+  pc.style.transform='';pc.style.transition='';
+  pc.className='char-idle';ec.className='enemy-idle';
+  ef.className='';ef.innerHTML='';
+  if(bw)bw.style.animation='';
+  try{mf.remove();}catch(e){}
 }
-
 async function animateHit(){
   const pc=$('player-char'),ef=$('effects');
   if(!pc)return;
