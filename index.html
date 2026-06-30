@@ -8,8 +8,8 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;background:#04080f;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;color:#e8e0cc;-webkit-tap-highlight-color:transparent;overflow:hidden}
-#app{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#04080f}
-.screen{width:100%;max-width:420px;height:100%;display:flex;flex-direction:column;position:relative;overflow:hidden;box-sizing:border-box}
+#app{height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#04080f}
+.screen{width:100%;max-width:420px;height:100dvh;display:flex;flex-direction:column;position:relative;overflow:hidden;box-sizing:border-box}
 
 /* ── BATTLE SCENE ── */
 #battle-wrap{position:relative;flex-shrink:0;height:168px;overflow:hidden;background:linear-gradient(180deg,#04080f 0%,#08122a 60%,#0a1830 100%)}
@@ -68,7 +68,7 @@ html,body{height:100%;background:#04080f;font-family:-apple-system,BlinkMacSyste
 @keyframes bubble-in{from{transform:scale(0.7);opacity:0}to{transform:scale(1);opacity:1}}
 
 /* ── GAME UI ── */
-#game-ui{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:10px 14px 14px;display:flex;flex-direction:column;gap:0;background:#080e1c}
+#game-ui{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:10px 14px calc(env(safe-area-inset-bottom,0px) + 56px);display:flex;flex-direction:column;gap:0;background:#080e1c}
 .status-bar{background:#04080f;padding:7px 16px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;border-bottom:0.5px solid #1a2e50}
 .gauge-bar{background:#0d1630;border-radius:4px;height:7px;overflow:hidden;border:0.5px solid #1a2e50}
 .gauge-fill{height:100%;border-radius:4px;transition:width .6s ease}
@@ -719,10 +719,10 @@ function roundHTML(){
         <div style="color:#e8e0cc;font-size:12px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r.title}</div>
       </div>
     </div>
-    <div class="situation" style="padding:6px 6px 4px">
-      <div style="max-height:110px;overflow:hidden;border-radius:4px">${SVGS[r.svg]}</div>
+    ${S.roundState==='question'?`<div class="situation" style="padding:6px 6px 4px">
+      <div style="max-height:100px;overflow:hidden;border-radius:4px">${SVGS[r.svg]}</div>
       <p style="color:#5a7a9a;font-size:9.5px;line-height:1.45;margin:4px 0 0;font-style:italic">${r.situation}</p>
-    </div>
+    </div>`:''}
     <div style="flex:1;display:flex;flex-direction:column">${content}</div>
   </div>
 </div>`;}
